@@ -1,0 +1,40 @@
+<div class="row">
+
+    <div class="col s12">
+      <h1>News Today</h1>
+    </div>
+
+    <div class="col s12">
+      <button (click)="goBack()" class="waves-effect waves-light btn black">Go Back</button>
+      <button (click)="refresh()" class="waves-effect waves-light btn black">Refresh</button>
+    </div>
+
+</div>
+
+
+<div class="row">
+  <div class="" [ngBusy]="{busy: busy, message: 'Refreshing...', backdrop: false, delay: 0, minDuration: 500}"></div>
+  <div class="col s12 m6 l6" *ngFor="let article of articles">
+    <div class="article">
+
+      <div class="card hoverable">
+        <div class="card-content">
+
+          <div class="center-align">
+            <h4 class="truncate">{{article.title}}</h4>
+            <p [innerHTML]="article.description | truncate : 160 || 'No Description'"></p>
+            <br />
+            <p *ngIf="article.publishedAt">
+              {{article.publishedAt | amTimeAgo}}
+            </p>
+          </div>
+
+          <p class="websiteLink"><a href="{{article.url}}" target="_blank">Full Article</a></p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

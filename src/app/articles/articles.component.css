@@ -1,0 +1,19 @@
+
+
+.article {
+
+}
+
+.card .card-content {
+  min-height:250px;
+  max-height:250px;
+}
+
+.websiteLink {
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px !important;
+  text-align: center;
+}

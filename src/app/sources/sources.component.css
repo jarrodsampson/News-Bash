@@ -1,0 +1,57 @@
+
+
+.banner {
+  width:100%;
+  height:400px;
+  background:url('../../assets/images/wall1.jpg') top center fixed;
+  background-size:cover;
+  position: relative;
+}
+
+.newsArticle {
+
+}
+
+.card .card-content {
+  min-height:200px;
+  max-height:200px;
+}
+
+.websiteLink {
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px !important;
+  text-align: center;
+}
+
+@media(max-width:992px) {
+  .banner {
+    height: 200px;
+  }
+
+  .searchFilterItem {
+    padding:.1em;
+    margin-bottom:1em;
+  }
+
+  .searchFilterItem .btn{
+    width:98%;
+  }
+}
+
+@media(max-width:992px) and (min-width:602px) {
+  .card .card-content {
+    min-height:250px;
+    max-height:250px;
+  }
+}
+
+@media(max-width:601px) {
+  .card .card-content {
+    min-height:0;
+    max-height:none;
+    padding-bottom: 3em;
+  }
+}

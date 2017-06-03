@@ -1,0 +1,130 @@
+
+<div class="col s12">
+  <div parallax [config]="{parallaxInitVal: -100, parallaxRatio: -11.3}" class="banner"></div>
+</div>
+
+<div class="row">
+
+    <div class="col s12">
+      <h1>News Sources</h1>
+      <p><em>{{(searchArr | searchFilter:search).length}} Sources Found</em></p>
+    </div>
+
+</div>
+
+
+<div class="row">
+  <div class="col s12 m6 l6">
+    <div class="">
+      <input class="" type="text" [(ngModel)]="search.name" placeholder="Search Sources..."/>
+    </div>
+
+    <div class="col s12 m12 l12 no-padding">
+
+      <div class="col s6 m6 l3 no-padding searchFilterItem">
+        <div class="">
+          <mz-dropdown
+            [id]="'dropL'"
+            [align]="'left'"
+            [constrainWidth]="true"
+            [dropdownButtonId]="'dropLang'"
+            [gutter]="true"
+            [hover]="true"
+            [inDuration]="300"
+            [outDuration]="300"
+            [stopPropagation]="true"
+          >
+            <mz-dropdown-item *ngFor="let lang of languages; let i = index">
+              <a (click)="onSearchLanguage(lang.code)">{{lang.language}}</a>
+            </mz-dropdown-item>
+          </mz-dropdown>
+
+          <a mz-button id="dropLang" href="#">Language</a>
+        </div>
+      </div>
+
+      <div class="col s6 m6 l3 no-padding searchFilterItem">
+        <div class="">
+          <mz-dropdown
+            [id]="'dropCo'"
+            [align]="'left'"
+            [constrainWidth]="true"
+            [dropdownButtonId]="'dropCon'"
+            [gutter]="true"
+            [hover]="true"
+            [inDuration]="300"
+            [outDuration]="300"
+            [stopPropagation]="true"
+          >
+            <mz-dropdown-item *ngFor="let c of countries; let i = index">
+              <a (click)="onSearchCountry(c.id)">{{c.name}}</a>
+            </mz-dropdown-item>
+          </mz-dropdown>
+
+          <a mz-button id="dropCon" href="#">Country</a>
+        </div>
+      </div>
+
+      <div class="col s6 m6 l3 no-padding searchFilterItem">
+        <div class="">
+          <mz-dropdown
+            [id]="'dropC'"
+            [align]="'left'"
+            [constrainWidth]="true"
+            [dropdownButtonId]="'dropCat'"
+            [gutter]="true"
+            [hover]="true"
+            [inDuration]="300"
+            [outDuration]="300"
+            [stopPropagation]="true"
+          >
+            <mz-dropdown-item *ngFor="let choice of categories; let i = index">
+              <a (click)="onSearchCategory(choice.id)">{{choice.name}}</a>
+            </mz-dropdown-item>
+          </mz-dropdown>
+          <a mz-button id="dropCat" href="#">Category</a>
+        </div>
+      </div>
+
+      <div class="col s6 m6 l3 no-padding searchFilterItem">
+        <div class="">
+          <a mz-button (click)="searchReset()">Reset</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 m12 l12" [ngBusy]="{busy: busy, message: 'Loading Sources...', backdrop: false, delay: 0, minDuration: 500}"></div>
+  <div class="col s12 m6 l6" *ngFor="let source of searchArr | searchFilter:search">
+    <div class="newsArticle">
+
+      <div class="card hoverable">
+        <div class="card-content">
+
+          <div class="center-align" (click)="onSourceClick(source)">
+            <h4 class="truncate">{{source.name}}</h4>
+            <p [innerHTML]="source.description | truncate : 160 || 'No Description'"></p>
+          </div>
+
+          <p class="websiteLink"><a href="{{source.url}}" target="_blank">{{source.name}}'s Website</a></p>
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+<div class="row" *ngIf="(searchArr | searchFilter:search).length === 0">
+
+  <div class="col s12">
+    <p><em>No Sources Found</em></p>
+  </div>
+
+</div>
