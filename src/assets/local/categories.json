@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Business",
+    "id": "business"
+  },
+  {
+    "name": "Entertainment",
+    "id": "entertainment"
+  },
+  {
+    "name": "Gaming",
+    "id": "gaming"
+  },
+  {
+    "name": "Music",
+    "id": "music"
+  },
+  {
+    "name": "Politics",
+    "id": "politics"
+  },
+  {
+    "name": "Science/ Nature",
+    "id": "science-and-nature"
+  },
+  {
+    "name": "Sports",
+    "id": "sport"
+  },
+  {
+    "name": "Technology",
+    "id": "technology"
+  }
+]
